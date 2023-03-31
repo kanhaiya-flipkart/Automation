@@ -195,6 +195,7 @@ public class RestApi {
 
     @Test(description = "",priority = 6,groups = "get.api_1")
     public static void getTest6 (){
+
         RestAssured.baseURI = "http://10.24.2.106/financial_account/73993";
         RequestSpecification request = RestAssured.given().header("X_BU_ID","fkmp").queryParam("account_num","true").queryParam("skip_ifsc_validation","false");
         Response response = request.get();
