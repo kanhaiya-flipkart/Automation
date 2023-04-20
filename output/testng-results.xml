@@ -1,82 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="13" passed="12" failed="1" skipped="0">
+<testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-03-30T11:32:26 IST" name="Suite1" finished-at="2023-03-30T11:32:28 IST" duration-ms="1573">
+  <suite started-at="2023-04-19T13:05:19 IST" name="Suite1" finished-at="2023-04-19T13:05:21 IST" duration-ms="1472">
     <groups>
-      <group name="get">
-        <method signature="RestApi.Test1()[pri:1, instance:com.test.prince.RestApi@793be5ca]" name="Test1" class="com.test.prince.RestApi"/>
-        <method signature="RestApi.Test2()[pri:2, instance:com.test.prince.RestApi@793be5ca]" name="Test2" class="com.test.prince.RestApi"/>
-        <method signature="RestApi.Test3()[pri:3, instance:com.test.prince.RestApi@793be5ca]" name="Test3" class="com.test.prince.RestApi"/>
-        <method signature="RestApi.Test4()[pri:4, instance:com.test.prince.RestApi@793be5ca]" name="Test4" class="com.test.prince.RestApi"/>
-        <method signature="RestApi.Test5()[pri:5, instance:com.test.prince.RestApi@793be5ca]" name="Test5" class="com.test.prince.RestApi"/>
-        <method signature="RestApi.Test6()[pri:6, instance:com.test.prince.RestApi@793be5ca]" name="Test6" class="com.test.prince.RestApi"/>
-      </group> <!-- get -->
-      <group name="get.api_1">
-        <method signature="RestApi.getTest1()[pri:1, instance:com.test.rishabh.RestApi@4a7f959b]" name="getTest1" class="com.test.rishabh.RestApi"/>
-        <method signature="RestApi.getTest2()[pri:2, instance:com.test.rishabh.RestApi@4a7f959b]" name="getTest2" class="com.test.rishabh.RestApi"/>
-        <method signature="RestApi.getTest3()[pri:3, instance:com.test.rishabh.RestApi@4a7f959b]" name="getTest3" class="com.test.rishabh.RestApi"/>
-        <method signature="RestApi.getTest4()[pri:4, instance:com.test.rishabh.RestApi@4a7f959b]" name="getTest4" class="com.test.rishabh.RestApi"/>
-        <method signature="RestApi.getTest5()[pri:5, instance:com.test.rishabh.RestApi@4a7f959b]" name="getTest5" class="com.test.rishabh.RestApi"/>
-        <method signature="RestApi.getTest6()[pri:6, instance:com.test.rishabh.RestApi@4a7f959b]" name="getTest6" class="com.test.rishabh.RestApi"/>
-      </group> <!-- get.api_1 -->
-      <group name="get.api_2">
-        <method signature="RestApi.getTest7()[pri:7, instance:com.test.rishabh.RestApi@4a7f959b]" name="getTest7" class="com.test.rishabh.RestApi"/>
-      </group> <!-- get.api_2 -->
+      <group name="rishabh">
+        <method signature="RestApi.groupTesting()[pri:0, instance:com.test.rishabh.RestApi@6bedbc4d]" name="groupTesting" class="com.test.rishabh.RestApi"/>
+      </group> <!-- rishabh -->
+      <group name="prince">
+        <method signature="RestApi.groupTesting()[pri:0, instance:com.test.prince.RestApi@5ace1ed4]" name="groupTesting" class="com.test.prince.RestApi"/>
+      </group> <!-- prince -->
     </groups>
-    <test started-at="2023-03-30T11:32:26 IST" name="Test Demo" finished-at="2023-03-30T11:32:28 IST" duration-ms="1573">
+    <test started-at="2023-04-19T13:05:19 IST" name="Test Demo" finished-at="2023-04-19T13:05:21 IST" duration-ms="1472">
       <class name="com.test.rishabh.RestApi">
-        <test-method signature="getTest1()[pri:1, instance:com.test.rishabh.RestApi@4a7f959b]" started-at="2023-03-30T11:32:27 IST" name="getTest1" finished-at="2023-03-30T11:32:27 IST" duration-ms="48" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getTest1 -->
-        <test-method signature="getTest2()[pri:2, instance:com.test.rishabh.RestApi@4a7f959b]" started-at="2023-03-30T11:32:27 IST" name="getTest2" finished-at="2023-03-30T11:32:27 IST" duration-ms="48" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getTest2 -->
-        <test-method signature="getTest3()[pri:3, instance:com.test.rishabh.RestApi@4a7f959b]" started-at="2023-03-30T11:32:27 IST" name="getTest3" finished-at="2023-03-30T11:32:27 IST" duration-ms="51" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getTest3 -->
-        <test-method signature="getTest4()[pri:4, instance:com.test.rishabh.RestApi@4a7f959b]" started-at="2023-03-30T11:32:27 IST" name="getTest4" finished-at="2023-03-30T11:32:27 IST" duration-ms="45" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getTest4 -->
-        <test-method signature="getTest5()[pri:5, instance:com.test.rishabh.RestApi@4a7f959b]" started-at="2023-03-30T11:32:27 IST" name="getTest5" finished-at="2023-03-30T11:32:27 IST" duration-ms="50" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getTest5 -->
-        <test-method signature="getTest6()[pri:6, instance:com.test.rishabh.RestApi@4a7f959b]" started-at="2023-03-30T11:32:27 IST" name="getTest6" finished-at="2023-03-30T11:32:28 IST" duration-ms="49" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getTest6 -->
-        <test-method signature="getTest7()[pri:7, instance:com.test.rishabh.RestApi@4a7f959b]" started-at="2023-03-30T11:32:28 IST" name="getTest7" finished-at="2023-03-30T11:32:28 IST" duration-ms="41" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getTest7 -->
-      </class> <!-- com.test.rishabh.RestApi -->
-      <class name="com.test.prince.RestApi">
-        <test-method signature="Test1()[pri:1, instance:com.test.prince.RestApi@793be5ca]" started-at="2023-03-30T11:32:26 IST" name="Test1" finished-at="2023-03-30T11:32:27 IST" duration-ms="816" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Test1 -->
-        <test-method signature="Test2()[pri:2, instance:com.test.prince.RestApi@793be5ca]" started-at="2023-03-30T11:32:27 IST" name="Test2" finished-at="2023-03-30T11:32:27 IST" duration-ms="176" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Test2 -->
-        <test-method signature="Test3()[pri:3, instance:com.test.prince.RestApi@793be5ca]" started-at="2023-03-30T11:32:27 IST" name="Test3" finished-at="2023-03-30T11:32:27 IST" duration-ms="67" status="FAIL">
+        <test-method signature="groupTesting()[pri:0, instance:com.test.rishabh.RestApi@6bedbc4d]" started-at="2023-04-19T13:05:21 IST" name="groupTesting" finished-at="2023-04-19T13:05:21 IST" duration-ms="397" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[external_id value is not matched expected [SBI] but found [ICICI]]]>
+              <![CDATA[beneficiary_name value is not matched in http://10.24.2.106/financial_account/73993 expected [sourabh gurav] but found [sagar gurav]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: external_id value is not matched expected [SBI] but found [ICICI]
+              <![CDATA[java.lang.AssertionError: beneficiary_name value is not matched in http://10.24.2.106/financial_account/73993 expected [sourabh gurav] but found [sagar gurav]
 at org.testng.Assert.fail(Assert.java:110)
 at org.testng.Assert.failNotEquals(Assert.java:1577)
 at org.testng.Assert.assertEqualsImpl(Assert.java:149)
 at org.testng.Assert.assertEquals(Assert.java:131)
-at com.test.prince.RestApi.verifyJsonObejct(RestApi.java:34)
-at com.test.prince.RestApi.Test3(RestApi.java:120)
+at com.test.rishabh.RestApi.verifyJsonObject(RestApi.java:42)
+at com.test.rishabh.RestApi.groupTesting(RestApi.java:310)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -109,19 +58,13 @@ at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:109)
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Test3 -->
-        <test-method signature="Test4()[pri:4, instance:com.test.prince.RestApi@793be5ca]" started-at="2023-03-30T11:32:27 IST" name="Test4" finished-at="2023-03-30T11:32:27 IST" duration-ms="51" status="PASS">
+        </test-method> <!-- groupTesting -->
+      </class> <!-- com.test.rishabh.RestApi -->
+      <class name="com.test.prince.RestApi">
+        <test-method signature="groupTesting()[pri:0, instance:com.test.prince.RestApi@5ace1ed4]" started-at="2023-04-19T13:05:19 IST" name="groupTesting" finished-at="2023-04-19T13:05:21 IST" duration-ms="1047" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Test4 -->
-        <test-method signature="Test5()[pri:5, instance:com.test.prince.RestApi@793be5ca]" started-at="2023-03-30T11:32:27 IST" name="Test5" finished-at="2023-03-30T11:32:27 IST" duration-ms="44" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Test5 -->
-        <test-method signature="Test6()[pri:6, instance:com.test.prince.RestApi@793be5ca]" started-at="2023-03-30T11:32:27 IST" name="Test6" finished-at="2023-03-30T11:32:27 IST" duration-ms="50" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Test6 -->
+        </test-method> <!-- groupTesting -->
       </class> <!-- com.test.prince.RestApi -->
     </test> <!-- Test Demo -->
   </suite> <!-- Suite1 -->

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="org.flipkart.domain.RestApiTest" table="test">
+        <id name="base_url">
+            <generator class="assigned"></generator>
+        </id>
+        <property name="headers"></property>
+
+        <property name="query_params"></property>
+
+        <property name="output"></property>
+
+    </class>
+
+</hibernate-mapping>
