@@ -40,4 +40,14 @@ public class RestApiTest {
     public void setOutput(String output) {
         this.output = output;
     }
+
+    @Override
+    public String toString() {
+        return "RestApiTest{" +
+                "base_url='" + base_url + '\'' +
+                ", headers='" + headers + '\'' +
+                ", query_params='" + query_params + '\'' +
+                ", output='" + output + '\'' +
+                '}';
+    }
 }

@@ -20,7 +20,6 @@ import java.util.Iterator;
 
 
 public class RestApi {
-
     public static void verifyJsonArray(JSONArray actualJsonArray, JSONArray jsonArray,String base_url) {
         for (int i = 0; i < actualJsonArray.length(); i++) {
             verifyJsonObject(actualJsonArray.getJSONObject(i), jsonArray.getJSONObject(i),base_url);
