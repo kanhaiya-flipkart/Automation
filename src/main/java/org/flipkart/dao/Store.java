@@ -6,6 +6,9 @@ import org.hibernate.SessionFactory;
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
 
+//import javax.management.Query;
+
+import org.hibernate.query.Query;
 import java.util.HashMap;
 import java.util.List;
 import java.util.*;
@@ -66,9 +69,15 @@ public class Store {
         }
     }
 
-//    public static void main(String[] args) {
-//        Store store = Store.getInstance();
-//    }
+    public RestApiTest findTestWithId(int testId){
+        try(Session session= sessionFactoryObj.openSession()){
+            Query query=session.createQuery("from RestApiTest where testId=:testId");//here persistent class name is Emp
+            query.setParameter("testId",testId);
+            List<RestApiTest> restApiTests = query.getResultList();
+            return restApiTests.get(0);
+        }
+    }
+
 
 
 }

@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import org.codehaus.plexus.classworlds.strategy.Strategy;
 
 @Entity
-@Table(name = "testing",uniqueConstraints = {
+@Table(name = "testing1",uniqueConstraints = {
         @UniqueConstraint(columnNames = "testId")
 })
 
@@ -20,7 +20,7 @@ public class RestApiTest  {
     private String output;
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="testID",unique = true,nullable = false)
     public int getTestId(){
         return testId;
