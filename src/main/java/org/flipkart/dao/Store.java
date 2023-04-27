@@ -1,21 +1,35 @@
 package org.flipkart.dao;
+import groovy.lang.GString;
 import org.flipkart.domain.RestApiTest;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.*;
 
 
 public class Store {
+    private Properties properties = new Properties();
+
+
     private static Store store;
     private SessionFactory sessionFactoryObj;
 
-    private Store() {
+    private  Store() {
+        properties.setProperty("dialect","org.hibernate.dialect.MySQLDialect");
+        properties.setProperty("hibernate.connection.url","jdbc:mysql://localhost:3306/testing");
+        properties.setProperty("hibernate.connection.username","root");
+        properties.setProperty("hibernate.connection.password","root1234");
+        properties.setProperty("hibernate.connection.driver_class","com.mysql.cj.jdbc.Driver");
+        properties.setProperty("hibernate.order_updates","true");
+        properties.setProperty("hibernate.hbm2ddl.auto","update");
         sessionFactoryObj = buildSessionFactory();
     }
 
-    public static synchronized Store getInstance() {
+    public static  Store getInstance() {
         if(store == null) {
             store = new Store();
         }
@@ -24,9 +38,9 @@ public class Store {
 
     private SessionFactory buildSessionFactory(){
         Configuration configuration = new Configuration();
-        configuration.configure("hibernate.cfg.xml");
-        SessionFactory sessionFactory
-                = configuration.buildSessionFactory();
+        configuration.addAnnotatedClass(RestApiTest.class);
+        configuration.addProperties(properties);
+        SessionFactory sessionFactory = configuration.buildSessionFactory();
         return sessionFactory;
     }
 
@@ -51,5 +65,10 @@ public class Store {
             return session.createQuery("from RestApiTest", RestApiTest.class).getResultList();
         }
     }
+
+//    public static void main(String[] args) {
+//        Store store = Store.getInstance();
+//    }
+
 
 }

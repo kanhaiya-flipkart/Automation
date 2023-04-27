@@ -10,6 +10,7 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.flipkart.domain.RestApiTest;
+import org.flipkart.factory.Testfactory;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.testng.Assert;
@@ -30,11 +31,10 @@ public class Prince {
         Iterator<String> keys = actualJsonObject.keys();
         while(keys.hasNext()){
             String key = keys.next();
-            String className = actualJsonObject.get(key).getClass().getName();
-            if(className == "org.json.JSONObject"){
+            if(actualJsonObject.get(key) instanceof JSONObject){
                 verifyJsonObject(actualJsonObject.getJSONObject(key),jsonObject.getJSONObject(key),base_url);
             }
-            else if(className == "org.json.JSONArray"){
+            else if(actualJsonObject.get(key) instanceof JSONArray){
                 verifyJsonArray(actualJsonObject.getJSONArray(key),jsonObject.getJSONArray(key),base_url);
             }
             else{
@@ -125,16 +125,14 @@ public class Prince {
 
         String output = row_data.getOutput();
         if(output != null)verifyOutput(body,output,row_data.getBase_url());
-
     }
 
-    @Test()
-    public void groupTesting() {
-        connectDB();
-        List<RestApiTest> all_rows = Store.getInstance().findAllStudentsWithJpql();
-        int row_length  = all_rows.size();
-        for(int row = 0;row < row_length;row++){
-            runApiTest(all_rows.get(row));
-        }
+    @Test(dataProvider = "RestApiData",dataProviderClass = Testfactory.class)
+    public void groupTesting(RestApiTest restApiTest) {
+        runApiTest(restApiTest);
     }
+
+
+
+
 }

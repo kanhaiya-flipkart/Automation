@@ -10,9 +10,16 @@
 <!--        </groups>-->
         <classes>
             <class name="org.flipkart.service.Prince"></class>
-<!--            <class name="com.test.rishabh.RestApi"></class>-->
+<!--            <class name="org.flipkart.service.MyTest">-->
+<!--                <parameter name="data-provider" value="com.example.MyTest.createInstances"/>-->
+<!--            </class>-->
+<!--            <class name="org.flipkart.factory.Testfactory"></class>-->
+<!--            <class name="org.flipkart.factory.TestAnnotationFactory"></class>-->
+<!--            <class name="org.flipkart.service.SimpleTestAnnotationFactory"></class>-->
         </classes>
     </test>
 </suite>
+
+
 
 
