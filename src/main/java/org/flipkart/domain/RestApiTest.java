@@ -19,6 +19,10 @@ public class RestApiTest  {
 
     private String output;
 
+    private String service;
+
+    private String test_case_name;
+
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="testID",unique = true,nullable = false)
@@ -66,13 +70,34 @@ public class RestApiTest  {
         this.output = output;
     }
 
+    @Column(name = "service",unique = true,nullable = true,length = 2000)
+    public String getService() {
+        return service;
+    }
+
+    public void setService(String service) {
+        this.service = service;
+    }
+
+    @Column(name = "test_name",unique = false,nullable = true,length = 2000)
+    public String getTest_case_name() {
+        return test_case_name;
+    }
+
+    public void setTest_case_name(String test_case_name) {
+        this.test_case_name = test_case_name;
+    }
+
     @Override
     public String toString() {
         return "RestApiTest{" +
-                "base_url='" + base_url + '\'' +
+                "testId=" + testId +
+                ", base_url='" + base_url + '\'' +
                 ", headers='" + headers + '\'' +
                 ", query_params='" + query_params + '\'' +
                 ", output='" + output + '\'' +
+                ", service='" + service + '\'' +
+                ", test_case_name='" + test_case_name + '\'' +
                 '}';
     }
 }
