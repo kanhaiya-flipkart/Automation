@@ -193,10 +193,34 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/com.lowagie/itext -->
+        <dependency>
+            <groupId>com.lowagie</groupId>
+            <artifactId>itext</artifactId>
+            <version>2.1.7</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+        <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>4.0.9</version>
+        </dependency>
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>html2pdf</artifactId>
+            <version>4.0.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>itextpdf</artifactId>
+            <version>5.5.13</version>
+        </dependency>
 
-
-
-
+        <dependency>
+            <groupId>com.itextpdf.tool</groupId>
+            <artifactId>xmlworker</artifactId>
+            <version>5.5.13</version>
+        </dependency>
     </dependencies>
 
 
@@ -213,6 +237,12 @@
                         <!-- TestNG suite XML files -->
                         <suiteXmlFile>TestNG.xml</suiteXmlFile>
                     </suiteXmlFiles>
+                <properties>
+                    <property>
+                        <name>listener</name>
+                        <value>org.flipkart.testng.CustomisedListener</value>
+                    </property>
+                </properties>
                 </configuration>
             </plugin>
 
@@ -263,7 +293,8 @@
                                     </directory>
                                     <includes>
                                         <!-- Report file name -->
-                                        <include>emailable-report.html</include>
+<!--                                        <include>emailable-report.html</include>-->
+                                        <include>ExtentReport.html</include>-->
                                     </includes>
                                     <!-- Use Regular Expressions like **/*.html if you want all the html files to send-->
                                 </fileSet>

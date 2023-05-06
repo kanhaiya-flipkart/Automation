@@ -1,23 +1,15 @@
 <?xml version = "1.0"encoding = "UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name = "Suite1">
+    <listeners>
+        <listener class-name="org.flipkart.testng.CustomReporter"/>
+    </listeners>
     <test name = "Test Demo">
-<!--        <groups>-->
-<!--            <run>-->
-<!--                <include name="prince"/>-->
-<!--                <include name="rishabh"/>-->
-<!--            </run>-->
-<!--        </groups>-->
         <classes>
             <class name="org.flipkart.service.Prince"></class>
-<!--            <class name="org.flipkart.service.MyTest">-->
-<!--                <parameter name="data-provider" value="com.example.MyTest.createInstances"/>-->
-<!--            </class>-->
-<!--            <class name="org.flipkart.factory.Testfactory"></class>-->
-<!--            <class name="org.flipkart.factory.TestAnnotationFactory"></class>-->
-<!--            <class name="org.flipkart.service.SimpleTestAnnotationFactory"></class>-->
         </classes>
     </test>
+
 </suite>
 
 
