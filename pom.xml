@@ -6,7 +6,7 @@
 
     <groupId>org.example</groupId>
     <artifactId>automation-testing</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -14,7 +14,6 @@
         <testng.version>7.7.1</testng.version>
         <rest-assured.version>5.3.0</rest-assured.version>
         <jackson.version>2.14.2</jackson.version>
-        <json.version>20220924</json.version>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -73,11 +72,11 @@
         </dependency>
 
 
-        <!-- JSON Dependency -->
+        <!-- https://mvnrepository.com/artifact/org.json/json -->
         <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
-            <version>${json.version}</version>
+            <version>20230227</version>
         </dependency>
 
 
@@ -96,20 +95,12 @@
         </dependency>
 
 
-        <dependency>
-            <groupId>com.opencsv</groupId>
-            <artifactId>opencsv</artifactId>
-            <version>4.1</version>
-        </dependency>
-
         <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
         <dependency>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
             <version>3.8.1</version>
         </dependency>
-
-
 
 
         <!-- https://mvnrepository.com/artifact/javax.mail/mail -->
@@ -124,18 +115,6 @@
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-dependency-plugin</artifactId>
             <version>3.5.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.mongodb</groupId>
-            <artifactId>mongodb-driver-sync</artifactId>
-            <version>4.9.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.mongodb</groupId>
-            <artifactId>mongodb-driver</artifactId>
-            <version>3.4.2</version>
         </dependency>
 
         <dependency>
@@ -214,120 +193,40 @@
 
     <build>
         <plugins>
-            <!-- Suirefire plugin to run xml files -->
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-surefire-plugin</artifactId>-->
-<!--                <version>2.18.1</version>-->
-<!--                <configuration>-->
-<!--                    <skip>true</skip>-->
-<!--                    <suiteXmlFiles>-->
-<!--                        &lt;!&ndash; TestNG suite XML files &ndash;&gt;-->
-<!--                        <suiteXmlFile>TestNG.xml</suiteXmlFile>-->
-<!--                    </suiteXmlFiles>-->
-<!--                <properties>-->
-<!--                    <property>-->
-<!--                        <name>listener</name>-->
-<!--                        <value>org.flipkart.testng.CustomisedListener</value>-->
-<!--                    </property>-->
-<!--                </properties>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
-
-<!--            <plugin>-->
-<!--                <groupId>ch.fortysix</groupId>-->
-<!--                <artifactId>maven-postman-plugin</artifactId>-->
-<!--                <version>0.1.6</version>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-
-<!--                        <id>send-a-mail</id>-->
-<!--                        <phase>test</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>send-mail</goal>-->
-<!--                        </goals>-->
-<!--                        <inherited>true</inherited>-->
-
-<!--                        <configuration>-->
-<!--                            &lt;!&ndash; From Email address &ndash;&gt;-->
-<!--                            <from>singhalkanhaiya4321@gmail.com</from>-->
-
-<!--                            &lt;!&ndash;  Email subject &ndash;&gt;-->
-<!--                            <subject>Test Automation Report</subject>-->
-
-<!--                            &lt;!&ndash; Fail the build if the mail dosen't reach &ndash;&gt;-->
-<!--                            <failonerror>true</failonerror>-->
-
-<!--                            &lt;!&ndash; host &ndash;&gt;-->
-<!--                            <mailhost>smtp.gmail.com</mailhost>-->
-<!--                            &lt;!&ndash; port of the host &ndash;&gt;-->
-<!--                            <mailport>465</mailport>-->
-<!--                            <mailssl>true</mailssl>-->
-<!--                            <mailAltConfig>true</mailAltConfig>-->
-
-<!--                            &lt;!&ndash; Email Authentication(USername and Password) &ndash;&gt;-->
-<!--                            <mailuser>singhalkanhaiya4321@gmail.com</mailuser>-->
-<!--                            <mailpassword>cilupdlalcrpxxah</mailpassword>-->
-
-<!--                            <receivers>-->
-<!--                                &lt;!&ndash; To Email address &ndash;&gt;-->
-<!--                                <receiver>singhalkanhaiya4321@gmail.com</receiver>-->
-<!--                            </receivers>-->
-
-<!--                            <fileSets>-->
-<!--                                <fileSet>-->
-<!--                                    &lt;!&ndash; Report directory Path &ndash;&gt;-->
-<!--                                    <directory>test-output-->
-<!--                                    </directory>-->
-<!--                                    <includes>-->
-<!--                                        &lt;!&ndash; Report file name &ndash;&gt;-->
-<!--&lt;!&ndash;                                        <include>emailable-report.html</include>&ndash;&gt;-->
-<!--                                        <include>ExtentReport.html</include>&ndash;&gt;-->
-<!--                                    </includes>-->
-<!--                                    &lt;!&ndash; Use Regular Expressions like **/*.html if you want all the html files to send&ndash;&gt;-->
-<!--                                </fileSet>-->
-<!--                            </fileSets>-->
-
-<!--                        </configuration>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
-
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.1.1</version>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>org.flipkart.service.Prince</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
                 <executions>
                     <execution>
-                        <id>copy-dependencies</id>
-                        <phase>prepare-package</phase>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
                         <goals>
-                            <goal>copy-dependencies</goal>
+                            <goal>single</goal>
                         </goals>
-                        <configuration>
-                            <outputDirectory>
-                                ${project.build.directory}/libs
-                            </outputDirectory>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
                 <configuration>
-                    <archive>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                            <classpathPrefix>libs/</classpathPrefix>
-                            <mainClass>
-                                org.flipkart.service.Prince
-                            </mainClass>
-                        </manifest>
-                    </archive>
+                    <source>11</source>
+                    <target>11</target>
                 </configuration>
             </plugin>
-
         </plugins>
     </build>
 
