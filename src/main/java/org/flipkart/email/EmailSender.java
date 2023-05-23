@@ -1,8 +1,6 @@
 package org.flipkart.email;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 import javax.mail.*;
 import javax.mail.internet.*;
@@ -12,15 +10,13 @@ public class EmailSender {
     String senderPassword;
     int smtpPort ;
     public void sendEmail(String recipient) {
-        try(FileInputStream ip= new FileInputStream("src/main/resources/config.properties")) {
+        try(BufferedReader ip = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/config.properties")))) {
             Properties properties = new Properties();
             properties.load(ip);
-
 //           sender's email credentials
              senderEmail = properties.getProperty("email.username");
              senderPassword = properties.getProperty("email.password");
              smtpPort = Integer.parseInt(properties.getProperty("smtp.port"));
-
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {

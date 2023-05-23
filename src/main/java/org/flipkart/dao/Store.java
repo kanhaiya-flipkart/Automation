@@ -8,9 +8,7 @@ import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.util.List;
 import java.util.*;
 
@@ -25,7 +23,9 @@ public class Store {
         String dbUrl;
         String dbUserName;
         String dbPassword;
-        try(FileInputStream ip= new FileInputStream("src/main/resources/config.properties")) {
+
+
+        try(BufferedReader ip = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/config.properties")))) {
             Properties properties = new Properties();
             properties.load(ip);
 
