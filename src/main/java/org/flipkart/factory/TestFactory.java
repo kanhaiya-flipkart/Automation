@@ -6,7 +6,7 @@ import org.testng.annotations.DataProvider;
 
 import java.util.List;
 
-public class Testfactory {
+public class TestFactory {
     @DataProvider(name="RestApiData")
     public Object[] fetchData(){
         Store store = Store.getInstance();

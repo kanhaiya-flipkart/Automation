@@ -6,7 +6,7 @@
     </listeners>
     <test name = "Test Demo">
         <classes>
-            <class name="org.flipkart.service.Prince"></class>
+            <class name="org.flipkart.service.Testing"></class>
         </classes>
     </test>
 

@@ -1,4 +1,4 @@
-package org.flipkart.service;
+package org.flipkart.email;
 
 import java.util.*;
 import javax.mail.*;
@@ -11,7 +11,6 @@ public class EmailSender {
         String senderPassword = "cilupdlalcrpxxah";
 
         // Recipient's email address
-//        String recipientEmail = "singhalkanhaiya4321@gmail.com";
         String recipientEmail = recipient;
         // Email subject
         String subject = "Testing Report";

@@ -203,7 +203,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>org.flipkart.service.Prince</mainClass>
+                            <mainClass>org.flipkart.service.Testing</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

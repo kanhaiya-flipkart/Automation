@@ -19,7 +19,6 @@ public class CustomReporter implements IReporter {
     @Override
     public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
         ExtentReports extent = new ExtentReports();
-//        System.out.println(outputDirectory);
         // create HtmlReporter
         System.out.println(outputDirectory);
         ExtentHtmlReporter  htmlReporter = new ExtentHtmlReporter(outputDirectory + "/ExtentReport.html");
@@ -43,12 +42,8 @@ public class CustomReporter implements IReporter {
                     Object[] params = result.getParameters();
                     RestApiTest restApiTest = (RestApiTest) params[0];
                     String test_name = restApiTest.getTest_case_name();
-//                    String test_name = "service : " + restApiTest.getService() + "\n"+ "name : "+ restApiTest.getTest_case_name();
-//                    String testNameWithParams = result.getMethod().getMethodName() + "[" + restApiTest.getService() + "]";
                     ExtentTest test = extent.createTest(test_name);
                     test.assignCategory(restApiTest.getService());
-//                    test.assignCategory(testContext.getName());
-//                    System.out.println(testContext.getName());
                     switch (result.getStatus()) {
                         case ITestResult.SUCCESS:
                             test.pass("Test passed");
