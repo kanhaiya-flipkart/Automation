@@ -2,24 +2,27 @@ package org.flipkart.service;
 
 import io.restassured.config.HttpClientConfig;
 import io.restassured.config.RestAssuredConfig;
-import io.restassured.specification.PreemptiveAuthSpec;
 import org.apache.http.params.CoreConnectionPNames;
 import org.flipkart.dao.Store;
-
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.flipkart.domain.RestApiTest;
-import org.flipkart.factory.Testfactory;
+import org.flipkart.email.EmailSender;
+import org.flipkart.factory.TestFactory;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.testng.Assert;
-import org.testng.annotations.BeforeSuite;
+import org.testng.TestNG;
 import org.testng.annotations.Test;
+import org.testng.xml.XmlClass;
+import org.testng.xml.XmlSuite;
+import org.testng.xml.XmlTest;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class Prince {
+public class Testing {
 
     private void verifyJsonArray(JSONArray actualJsonArray, JSONArray jsonArray,String base_url) {
         for (int i = 0; i < actualJsonArray.length(); i++) {
@@ -38,7 +41,7 @@ public class Prince {
                 verifyJsonArray(actualJsonObject.getJSONArray(key),jsonObject.getJSONArray(key),base_url);
             }
             else{
-                Assert.assertEquals(jsonObject.get(key),actualJsonObject.get(key), key + " value is not matched in " + base_url + " --> ");
+                Assert.assertEquals(jsonObject.get(key),actualJsonObject.get(key), "[" + key+ "]" + " value is not matched in " + base_url + " --> ");
             }
         }
     }
@@ -127,14 +130,34 @@ public class Prince {
         if(output != null)verifyOutput(body,output,row_data.getBase_url());
     }
 
-    @Test(dataProvider = "RestApiData",dataProviderClass = Testfactory.class)
+    @Test(dataProvider = "RestApiData",dataProviderClass = TestFactory.class)
     public void groupTesting(RestApiTest restApiTest) {
         runApiTest(restApiTest);
     }
 
+    public static void main(String[] args) {
+        XmlSuite suite = new XmlSuite();
+        suite.setName("suite_1");
 
+        List<String> listeners = new ArrayList<String>();
+        listeners.add("org.flipkart.testng.CustomReporter");
+        suite.setListeners(listeners);
 
+        XmlTest test = new XmlTest(suite);
+        test.setName("TmpTest");
 
+        List<XmlClass> classes = new ArrayList<XmlClass>();
+        classes.add(new XmlClass("org.flipkart.service.Testing"));
+        test.setXmlClasses(classes) ;
 
+        List<XmlSuite> suites = new ArrayList<XmlSuite>();
+        suites.add(suite);
+
+        TestNG tng = new TestNG();
+        tng.setXmlSuites(suites);
+        tng.run();
+        EmailSender emailSender = new EmailSender();
+        emailSender.sendEmail("singhalkanhaiya4321@gmail.com");
+    }
 
 }

@@ -19,8 +19,8 @@ public class CustomReporter implements IReporter {
     @Override
     public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
         ExtentReports extent = new ExtentReports();
-//        System.out.println(outputDirectory);
         // create HtmlReporter
+        System.out.println(outputDirectory);
         ExtentHtmlReporter  htmlReporter = new ExtentHtmlReporter(outputDirectory + "/ExtentReport.html");
         extent.attachReporter(htmlReporter);
 
@@ -42,12 +42,8 @@ public class CustomReporter implements IReporter {
                     Object[] params = result.getParameters();
                     RestApiTest restApiTest = (RestApiTest) params[0];
                     String test_name = restApiTest.getTest_case_name();
-//                    String test_name = "service : " + restApiTest.getService() + "\n"+ "name : "+ restApiTest.getTest_case_name();
-//                    String testNameWithParams = result.getMethod().getMethodName() + "[" + restApiTest.getService() + "]";
                     ExtentTest test = extent.createTest(test_name);
                     test.assignCategory(restApiTest.getService());
-//                    test.assignCategory(testContext.getName());
-//                    System.out.println(testContext.getName());
                     switch (result.getStatus()) {
                         case ITestResult.SUCCESS:
                             test.pass("Test passed");
@@ -69,23 +65,6 @@ public class CustomReporter implements IReporter {
             }
         }
         extent.flush();
-        // Convert the HTML report to PDF
-//        try {
-//            com.itextpdf.text.Document document = new com.itextpdf.text.Document();
-//            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(outputDirectory + "/ExtentReport.pdf"));
-//            document.open();
-//            HTMLWorker htmlWorker = new HTMLWorker(document);
-//            FileInputStream fis = new FileInputStream(outputDirectory + "/ExtentReport.html");
-//            InputStreamReader isr = new InputStreamReader(fis);
-//            BufferedReader br = new BufferedReader(isr);
-//            String str = "";
-//            while ((str = br.readLine()) != null) {
-//                htmlWorker.parse(new StringReader(str));
-//            }
-//            document.close();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
     }
 }
 
