@@ -1,2 +1,4 @@
-target/
-output/
+/test-output
+/output
+/target/
+/.idea
