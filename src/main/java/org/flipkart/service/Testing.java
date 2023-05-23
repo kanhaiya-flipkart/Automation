@@ -18,9 +18,15 @@ import org.testng.annotations.Test;
 import org.testng.xml.XmlClass;
 import org.testng.xml.XmlSuite;
 import org.testng.xml.XmlTest;
+
+import java.io.EOFException;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Properties;
 
 public class Testing {
 
@@ -156,8 +162,10 @@ public class Testing {
         TestNG tng = new TestNG();
         tng.setXmlSuites(suites);
         tng.run();
+
         EmailSender emailSender = new EmailSender();
         emailSender.sendEmail("singhalkanhaiya4321@gmail.com");
+
     }
 
 }

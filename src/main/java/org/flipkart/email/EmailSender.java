@@ -1,14 +1,34 @@
 package org.flipkart.email;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.*;
 import javax.mail.*;
 import javax.mail.internet.*;
 
 public class EmailSender {
+    String senderEmail;
+    String senderPassword;
+    int smtpPort ;
     public void sendEmail(String recipient) {
+        try(FileInputStream ip= new FileInputStream("src/main/resources/config.properties")) {
+            Properties properties = new Properties();
+            properties.load(ip);
+
+//           sender's email credentials
+             senderEmail = properties.getProperty("email.username");
+             senderPassword = properties.getProperty("email.password");
+             smtpPort = Integer.parseInt(properties.getProperty("smtp.port"));
+
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         // Sender's email credentials
-        String senderEmail = "singhalkanhaiya4321@gmail.com";
-        String senderPassword = "cilupdlalcrpxxah";
+//        String senderEmail = "singhalkanhaiya4321@gmail.com";
+//        String senderPassword = "cilupdlalcrpxxah";
 
         // Recipient's email address
         String recipientEmail = recipient;
@@ -23,7 +43,7 @@ public class EmailSender {
 
         // SMTP server configuration (e.g., for Gmail)
         String smtpHost = "smtp.gmail.com";
-        int smtpPort = 587;
+//        int smtpPort = 587;
 
         // Create properties for the email session
         Properties properties = new Properties();

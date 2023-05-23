@@ -7,6 +7,10 @@ import org.hibernate.SessionFactory;
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 import java.util.*;
 
@@ -18,11 +22,27 @@ public class Store {
     private SessionFactory sessionFactoryObj;
 
     private Store() {
+        String dbUrl;
+        String dbUserName;
+        String dbPassword;
+        try(FileInputStream ip= new FileInputStream("src/main/resources/config.properties")) {
+            Properties properties = new Properties();
+            properties.load(ip);
+
+//           database credentials
+             dbUrl = properties.getProperty("database.url");
+             dbUserName = properties.getProperty("database.username");
+             dbPassword = properties.getProperty("database.password");
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
         properties.setProperty("dialect", "org.hibernate.dialect.MySQLDialect");
-        properties.setProperty("hibernate.connection.url", "jdbc:mysql://host.docker.internal:3306/testing");
-//        properties.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/testing");
-        properties.setProperty("hibernate.connection.username", "root");
-        properties.setProperty("hibernate.connection.password", "root1234");
+        properties.setProperty("hibernate.connection.url", dbUrl);
+        properties.setProperty("hibernate.connection.username", dbUserName);
+        properties.setProperty("hibernate.connection.password", dbPassword);
         properties.setProperty("hibernate.connection.driver_class", "com.mysql.cj.jdbc.Driver");
         properties.setProperty("hibernate.order_updates", "true");
         properties.setProperty("hibernate.hbm2ddl.auto", "update");

@@ -1,4 +1,6 @@
 /test-output
 /output
 /target/
-/.idea
+/.idea/
+src/main/resources/config.properties
+.DS_Store
